@@ -1,0 +1,62 @@
+@import "reset";
+
+$primary: #4985ff;
+$white: #fff;
+$dark: #323232;
+$grey: #999999;
+$fs: 16px;
+$baseAlign: center;
+
+@mixin flex($justify: flex-start) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+}
+@mixin mainCol {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+// header styles
+header {
+  height: 100px;
+  border-bottom: 1px solid #a1a1a180;
+  z-index: 2;
+  position: relative;
+  @include flex(center);
+  nav.navigation {
+    @include flex(flex-end);
+    @include mainCol();
+    .nav-link {
+      color: $white;
+      font-weight: 500;
+      font-size: $fs;
+      line-height: $fs * 1.25;
+      margin-right: 40px;
+      position: relative;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          height: 2px;
+          width: calc(100% + 40px);
+          left: -20px;
+          bottom: -39px;
+          background: $white;
+        }
+      }
+    }
+  }
+}
+// first section
+#main {
+  height: 900px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(./images/Rectangle.png);
+  position: relative;
+  top: -100px;
+}
